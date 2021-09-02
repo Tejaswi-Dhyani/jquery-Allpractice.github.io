@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>widhthheight by jquery</title>
+    <style>
+        body{
+            width: 100%;
+            height: auto;
+           
+            }
+        #measure{
+            width: 700px;
+            height: 200px;
+            border: 10px solid red;
+            background-color: blue;
+        }
+        .h1padding{
+            padding: 10px;
+        }
+        .h1style{
+            width: 250px;
+            height: 120px;
+            border: 2px solid red;
+            background-color: blue;
+        }
+        .styles{
+            width: 170px;
+            padding: 10px;
+        }
+        .animatediv{
+            width: 300px;
+            height: 50px;
+            border: 10px solid red;
+            background-color: blue; 
+        }
+    </style>
+</head>
+<body>
+    <ul style="color: blue; background: chartreuse;">
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, alias.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, eligendi?</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <br>
+    <p style="color: brown; background: palegreen;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos dolores veniam provident minima amet nemo sint unde fugiat sapiente laboriosam?</p>
+    <br>
+    <p style="color: purple; background:aqua;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ut, nihil quasi commodi mollitia provident repellendus assumenda incidunt accusamus id suscipit, necessitatibus placeat, reprehenderit tempore!</p>
+    <div id="test"></div>
+    <br>
+    <div class="tests"></div>
+    <br>
+    <button id="hideseek"  style="font-size: larger; color: crimson; background: yellowgreen;">click me</button>
+   <button id="para" style="font-size: larger; color: rgb(185, 14, 157); background: rgb(202, 148, 200);">hide para</button>
+   <div id="measure"></div><br>
+   <button id="showwidthheight">Check</button><br><br>
+   <input type="text" name="" id="widths" class="styles">
+   <input type="text" name="" id="heights" class="styles"><br>
+   <div id="showdiv">hii, i m showing. if u want a hide so click the button</div>
+   <button id="khel">click to hide/unhide</button><br>
+   <div style="display: flex; align-items: center;justify-content: space-between;">
+       <h1 style="display: none;">hello guys</h1><br>
+    <div id="testify"></div>
+    <button class="changetext">click me</button>
+     <h2>press any key</h2>
+     <h3>mouseover and see the magic</h3>
+     </div>
+    <h4><b>Animate me frnds</b></h4>
+    <div class="animatediv">Animation through javascript</div><button id="btndiv">click me</button>
+    <h2 style="text-align: center;">FOCUS AND BLUR</h2>
+    <input type="text" name="" id="textbox">
+    <span id="showdata">Welcome</span> 
+    <span id="showdatablur">Take Care</span>
+   
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        // hideandseek=()=>{
+        //     document.getElementById('test').innerText="hello guys";
+        // };
+       
+        // document.getElementById("test").innerText="hello frnds";
+       
+        // $('#hideseek').click(function(){
+        //     $('.tests').text("hello guys ,,,, tejaswi here");
+        // });
+
+        $('#hideseek').click(function(){
+            $("li:last").hide();
+        });
+
+        $('#para').click(function(){
+            $("p").hide();
+        });
+
+        $("#showwidthheight").click(function(){
+            var x="";
+            var y="";
+            x="The width of the div is" + $("#measure").width() + "px.";
+            y="The width of the div is" + $("#measure").height() + "px.";
+            $("#widths").val(x);
+            $("#heights").val(y);
+        });
+        setTimeout(function(){
+       $("h1").css({
+            display:"block",
+            color:"red",
+            fontSize: "50px"
+    });
+    // show/hide and toggle
+    $("h1").addClass("h1style h1padding");
+},4000) ;
+
+      $("#testify").text("hello world, Tejaswi here...");
+      $("#khel").click(function(){
+        $("#showdiv").toggle();
+        $("#testify").hide();
+ });
+//  change button text/html
+// $(".changetext").text("don't click me");
+$(".changetext").html("<em>don't click me</em>");
+
+$(document).keypress((event)=>{
+$("h2").text(event.key);
+});
+
+$("h3").on("mouseover",function()
+{$(this).css("color","purple");
+});
+
+$("h3").on("click",function()
+{$("h3").css("color","red");
+});
+
+// $("h3").before("<button>New</button>");
+$("h3").after("<button id='btnpress'> press me </button>");
+// $("button").remove();
+$("#btnpress").on("click",function(){
+// $("h4").fadeOut();
+// $("h4").fadeIn();
+// $("h4").fadeToggle();
+// $("h4").slideUp();
+// $("h4").slideDown();
+$("h4").slideToggle();
+});
+
+$("#btndiv").on("click",function(){
+// $(".animatediv").animate({opacity:0.5});
+// $(".animatediv").animate({margin:"5%"});
+$(".animatediv").slideUp().slideDown().animate({opacity:0.7});
+});
+
+//focus and blur event
+$("span").css("display","none");
+$("#textbox").focus(function(){
+    $("#showdata").css("display","inline").fadeOut(4000);
+});
+$("#textbox").blur(function(){
+    $("#showdatablur").css("display","inline").fadeOut(4000);
+});
+    </script>
+</body>
+</html>
